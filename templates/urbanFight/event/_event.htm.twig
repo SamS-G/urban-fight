@@ -1,0 +1,40 @@
+<div class="card-deck col-lg-4 ">
+    <div class="card border-dark m-2 ">
+        <div class="card-body">
+            {% for data in event.eventType.upload %}
+                <figure>
+                    <img class="card-img-top" src="{{ asset('upload/'~ data.name) }}" alt="Card image cap">
+                </figure>
+            {% endfor %}
+            <h5 class="card-title text-center subject">{{ event.eventType.subject }}</h5>
+            <p class="card-text text-center date_start"><u>Formation du</u> : <br>
+                <strong>{{ event.dateStart | format_datetime }} au {{ event.dateEnd | format_datetime }}</strong>
+            </p>
+            <address class="card-text text-center location"><u>Lieu</u> : <br><strong>{{ event.location }}</strong></address>
+            <button type="button" class="btn btn-dark btn-sm session-badge mb-3 mt-3">
+                Il reste <span class="badge badge-light available_places">{{ event.availablePlaces }}</span><span> places de disponibles.</span>
+            </button>
+            <div class="card-text content">{{ event.eventType.content |  raw }}</div>
+            {% if app.user and event.available_places > 0 %}
+                <div class="container text-center">
+                    <a type="button" href="{{ path('new_user_registration', { 'event_id' : event.id, 'eventTypeId' : event.eventType.id  }) }}" class="col-4 offset-4 btn btn-dark btn-block btn-sm">S'inscrire</a>
+                </div>
+            {% elseif app.user and event.available_places == 0 %}
+                <div class="container text-center">
+                    <a disabled="disabled" type="button" href="#" class="col-4 offset-4 btn btn-dark btn-block btn-sm">Complet</a>
+                </div>
+            {% elseif not app.user and event.available_places == 0 %}
+                <div class="container text-center">
+                    <a disabled="disabled" type="button" href="#" class="col-2 offset-5 btn btn-dark btn-block btn-sm">Complet</a>
+                </div>
+            {% else %}
+                <div class="container text-center">
+                    <em><small class="text-white bg-danger p-1 font-weight-bold">Connectez-vous à votre compte pour pouvoir vous inscrire.</small></em>
+                    <a href="{{ path('new_user_registration', { 'event_id' : event.id, 'eventTypeId' : event.eventType.id  }) }}" class="col-4 offset-4 btn btn-dark btn-block btn-sm mt-2">S'inscrire</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+

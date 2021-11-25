@@ -1,0 +1,18 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/public/build/runtime.js",
+        "/public/build/vendors-node_modules_core-js_modules_es_object_to-string_js-node_modules_core-js_modules_es_p-283ad7.js",
+        "/public/build/app.js"
+      ]
+    },
+    "create_event": {
+      "js": [
+        "/public/build/runtime.js",
+        "/public/build/vendors-node_modules_core-js_modules_es_object_to-string_js-node_modules_core-js_modules_es_p-283ad7.js",
+        "/public/build/create_event.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,447 @@
+{% extends 'base.html.twig' %}
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    {% include 'shared/header.html.twig' %}
+    <!-- slider start -->
+    <section class="slider-area">
+        <figure id="nivo-slider-images" class="slides">
+            <img src="{{ asset('img/moment-1.jpg') }}" alt="slider_1" title="#slider-direction-1"/>
+            <img loading="lazy" src="{{ asset('img/moment-2.jpg') }}" alt="slider_2" title="#slider-direction-2"/>
+            <img loading="lazy" src="{{ asset('img/moment-3.jpg') }}" alt="slider_3" title="#slider-direction-3"/>
+            <img loading="lazy" src="{{ asset('img/moment-4.jpg') }}" alt="slider_4" title="#slider-direction-4"/>
+        </figure>
+        <!-- slider 1 direction -->
+        <div id="slider-direction-1" class="t-cn slider-direction slider-one">
+            <!-- layer 1 -->
+            <div class="layer-1-1">
+                <h2 class="title-1">Urban Fight </h2>
+            </div>
+            <!-- layer 2 -->
+            <div class="layer-1-2">
+                <h2 class="title-2">Le nouveau concept</h2>
+            </div>
+            <!-- layer 3 -->
+            <div class="layer-1-3">
+                <p class="title-3">qui va faire mal !</p>
+            </div>
+        </div>
+        <!-- slider 2 direction -->
+        <div id="slider-direction-2" class="t-cn slider-direction slider-one">
+            <!-- layer 1 -->
+            <div class="layer-2-1">
+                <h2 class="title-1">Urban Fight</h2>
+            </div>
+            <!-- layer 2 -->
+            <div class="layer-2-2">
+                <h2 class="title-2">Une priorite</h2>
+            </div>
+            <!-- layer 3 -->
+            <div class="layer-2-3">
+                <p class="title-3">VOUS !</p>
+            </div>
+        </div>
+        <!-- slider 3 direction -->
+        <div id="slider-direction-3" class="t-cn slider-direction slider-one">
+            <!-- layer 1 -->
+            <div class="layer-3-1">
+                <h2 class="title-1">Urban Fight</h2>
+            </div>
+            <!-- layer 2 -->
+            <div class="layer-3-2">
+                <h2 class="title-2">Apprenez</h2>
+            </div>
+            <!-- layer 3 -->
+            <div class="layer-3-3">
+                <p class="title-3">à vous défendre vous et vos proches !</p>
+            </div>
+        </div>
+        <!-- slider 4 direction -->
+        <div id="slider-direction-4" class="t-cn slider-direction slider-one">
+            <!-- layer 1 -->
+            <div class="layer-4-1">
+                <h2 class="title-1">Urban Fight </h2>
+            </div>
+            <!-- layer 2 -->
+            <div class="layer-4-2">
+                <h2 class="title-2">Sachez</h2>
+            </div>
+            <!-- layer 3 -->
+            <div class="layer-4-3">
+                <p class="title-3">vous défendre sans vous battre !</p>
+            </div>
+        </div>
+    </section>
+    <!-- slider end -->
+
+    <!-- about Urban Fight start -->
+    <div class="tour-area section-padding" id="concept">
+        <h1 class="text-center mb-5">Urban Fight, self défense</h1>
+        <section class="about-us">
+            <div class="about-img"></div>
+            <div class="about-info">
+                <div class="about-content">
+                    <div class="section-heading">
+                        <h2>Qu'est-ce que l'Urban Fight ?</h2>
+                        <p>Méthode moderne de protection personnelle, l'Urban Fight est un système de MMA et d'Arts Martiaux
+                            su Sud-Asiatique, le <strong>Kali.</strong></p>
+
+                        <p>Du <strong>MMA</strong> il hérite de son <u><em>explosivité</em></u> et de sa <u><em> gestion de
+                                    l'incertitude.</em></u><br>
+                            Du <strong>Kali</strong> il y puise sa <u><em>fluidité,</em></u> son <u><em>maniement des armes
+                                    blanches</em></u> et
+                            une <u><em>connaissance des points sensibles. </em></u>
+                        </p>
+
+                        <p>C'est <strong>une vision complète</strong> d'une agression que ce soit <em>avant, pendant et
+                                après.</em>
+                        </p>
+
+                        <p><i class="fas fa-angle-double-right"></i> Ce ne sont pas uniquement des techniques mais un
+                            ensemble
+                            de de principes. <br> Réaliste et efficace,
+                            pas de place pour l'aspect esthétique ou spectaculaire
+                            !
+                        </p>
+                    </div>
+
+                    <div class="about-tab mt-5">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="nav-item">
+                                <a class="nav-link active text-dark p-2" href="#mission" aria-controls="mission" aria-selected="true" role="tab" data-toggle="tab">Objectif
+                                </a>
+                            </li>
+                            <li role="presentation" class="nav-item">
+                                <a class="nav-link text-dark p-2" href="#target" aria-controls="target" aria-selected="false" role="tab" data-toggle="tab">
+                                    Pour qui ?
+                                </a>
+                            </li>
+                            <li role="presentation" class="nav-item">
+                                <a class="nav-link text-dark p-2" href="#philosophy" aria-controls="philosophy" aria-selected="false" role="tab" data-toggle="tab">
+                                    Philosophie
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <section class="tab-content mt-2">
+                            <div role="tabpanel" class="tab-pane fade show active" id="mission">
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-arrow-alt-circle-right"></i> Se préparer à la réalité et à faire
+                                        face à des insultes, la violence des
+                                        coups, le combat au sol ou contre
+                                        plusieurs adversaires !
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-arrow-alt-circle-right"></i> Se préparer psychologiquement en plus
+                                        d'un travail technique et physique
+                                        rigoureux, exigeant.
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-arrow-alt-circle-right"></i> Ne pas se laisser dépasser pas la
+                                        situation et réagir de la façon
+                                        adéquat.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade" id="target">
+                                <p>Toute personne qui souhaite se préparer à <strong>gestion de conflit</strong> et
+                                    apprendre à se protéger <strong>efficacement.</strong></p>
+
+                                <h5>Aux professionnels qui sont :</h5>
+                                <ul>
+                                    <li><i class="fas fa-arrow-alt-circle-right"></i> de sécurité et de protection
+                                        rapprochée
+                                    </li>
+                                    <li><i class="fas fa-arrow-alt-circle-right"></i> de Police et de Gendarmerie
+                                    </li>
+                                    <li><i class="fas fa-arrow-alt-circle-right"></i> des forces spéciales et armées
+                                    </li>
+                                    <li><i class="fas fa-arrow-alt-circle-right"></i> des forces d'intervention en général
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade" id="philosophy">
+                                <p>Ce système de protection personnel où l'on apprend à vivre et survivre plutôt qu'à
+                                    blesser ou
+                                    tuer,
+                                    met l'accent sur la <u>prévention</u>, <u>l'évitement</u>, <u>la négociation et la
+                                        pacification</u>.
+                                    En fait tout ce qui peut éviter le passage à l'acte. Ce qui aurait des conséquences
+                                    graves
+                                    pour les deux parties, victime comme l'agresseur.
+                                    <br>
+                                    <b>Cependant,</b> si éviter l’agression physique échoue et afin d’être toujours en
+                                    mesure de
+                                    protéger son intégrité physique; subsiste un dernier maillon de la chaîne.</p>
+                                <p><i class="fas fa-exclamation"></i> <u>La protection ou la défense personnelle dans le cadre
+                                        légal de la légitime défense.</u></p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- about Urban Fight end -->
+
+    <!-- concept start -->
+    <section class="tour-area section-padding" id="report">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Le constat</h2><br>
+                        <h5 class="mt-2">Pourquoi avons nous besoin d'un nouveau concept de self-défense ?</h5>
+                        <p>Une double évidence s’impose: <br>
+                            De nombreux systèmes de défense sont incomplets voir <u>irréalistes</u> et la plupart des
+                            sports de combat sont <u>insuffisants.</u><br>
+                            De ce postulat est née l’Urban Fight.
+                        </p>
+                        <p><em><b>Système de défense réaliste et moderne, l’Urban Fight associe la puissance et
+                                    l’explosivité <i class="fas fa-bomb fa-fw"></i>du MMA avec la fluidité et la richesse
+                                    technique <i class="fas fa-fist-raised fa-fw"></i> du Kali Escrima.
+                                </b></em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- concept end -->
+
+    <!-- technique start -->
+    <section id="technical-response" class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>La réponse Technique</h2>
+                    <p>Chaque situation est différente mais peuvent toutes êtres classées en grandes familles.
+                        <br>
+                        Elle demandent toutes une attitude psychique et physique adaptées.
+                        <br>
+                        C'est ce que vous propose de découvrir en cliquant <a class="badge badge-danger"
+                                                                              href="{{ path('level_response') }}">ici</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- technique end -->
+
+    <div class="partner-area">
+        <!-- team start -->
+        <div class="team-area pt-5" id="team">
+            <section class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-heading">
+                            <h2>Les créateurs</h2>
+                            <p>C'est naturellement, grâce à une passion commune pour la Self-Défense que Fouad et
+                                Milhoud se rencontrèrent à la recherche de l'efficacité dans le combat.
+                                Ensemble, ils créeront l'Urban Fight ! <i class="fas fa-fist-raised fa-fw"></i> <i
+                                        class="fas fa-fist-raised fa-fw"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {{ include('shared/toast.html.twig') }}
+
+                <div class="team-members mt-0">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="single-team">
+                                <figure class="member-img mb-4">
+                                    <img src="{{ asset('img/team/fouad_ezbiri.jpg') }}" alt="fouad-ezbiri" class="img-fluid"/>
+                                </figure>
+                                <ul class="container-fluid d-flex justify-content-between mb-0 member-social">
+                                    <li><a href="https://fr-fr.facebook.com/fouad.ezbiri"> <i class="fa fa-facebook"></i> </a></li>
+                                    <li><a href="https://www.instagram.com/ezbiri_fightv/?hl=fr"> <i class="fa fa-instagram"></i> </a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCTHruyrZLMQUFLMIRIthOKg"> <i class="fa fa-youtube"></i> </a></li>
+                                    <li><a href="https://www.whatsapp.com/"> <i class="fab fa-whatsapp"></i></a></li>
+                                    <li><a href="https://ezbirifightv.fr"> <i class="fa fa-globe"></i> </a></li>
+                                </ul>
+                                <div class="member-info">
+                                    <h3>Fouad Ezbiri</h3>
+                                    <h5>Coach mental et physique</h5>
+                                    <p>
+                                        2X Champion du Monde de Kickboxing. <br>
+                                        Champion du monde de Muay Thaï. <br>
+                                        Champion du Monde d'Absolute Fight.<br>
+                                        Coach Mental (PNL, hypnose, sophrologie). <br>
+                                        Entraîneur en Muai-Thaï, K1, MMA.
+                                    </p>
+                                    <p><u>Il a former et accompagner des champions et des équipes telles que :</u>
+                                    </p>
+                                    <ul style="font-weight: 300;">
+                                        <li><em>Karmi Benzema,</em> footballeur professionnel et international.
+                                        </li>
+
+                                        <li><em>Abdellah Ezbiri,</em> Champion du Monde de K1.
+                                        </li>
+
+                                        <li><em>Fares Ziam,</em> combattant UFC.
+                                        </li>
+
+                                        <li><em>LOU,</em> équipe professionnelle de Rugby de Lyon.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="single-team">
+                                <figure class="member-img mb-4">
+                                    <img src="{{ asset('img/team/milhoud_khaldi.jpg') }}" alt="" class="img-fluid"/>
+                                </figure>
+                                <ul class="container-fluid d-flex justify-content-between mb-0 member-social">
+                                    <li><a href="https://fr-fr.facebook.com/fouad.ezbiri"> <i class="fa fa-facebook"></i> </a></li>
+                                    <li><a href="https://www.instagram.com/ezbiri_fightv/?hl=fr"> <i class="fa fa-instagram"></i> </a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCTHruyrZLMQUFLMIRIthOKg"> <i class="fa fa-youtube"></i> </a></li>
+                                    <li><a href="https://www.whatsapp.com/"> <i class="fab fa-whatsapp"></i></a></li>
+                                    <li><a href="https://ezbirifightv.fr"> <i class="fa fa-globe"></i> </a></li>
+                                </ul>
+                                <div class="member-info">
+                                    <h3>Milhoud Khaldi</h3>
+                                    <h5>Expert en Kali et Silat</h5>
+                                    <p>
+                                        Miloud Khaldi née le 18/07/68 attiré très tôt par les arts martiaux il
+                                        débuta en
+                                        1977 à 9 ans par le <strong>Karaté</strong> puis <strong>l'Aïkido</strong>
+                                        qu'il
+                                        pratiqua 7 années avant de
+                                        poursuivre son étude par le <strong>Kung Fu.</strong>
+                                        Jusqu'à devenir entraîneur. Plus tard il découvrit le <strong>Kali</strong>
+                                        discipline très peu connue à l'époque.
+                                        Séduit par la fluidité des mouvements, la globalité des techniques et les
+                                        distances abordées ( armes blanches, pied,
+                                        poings, amenées au sol, soumission).
+                                        En fait tout ce qu'il avait cherché dans les Arts Martiaux et Sports de
+                                        Combat
+                                        étaient
+                                        rassemblés dans un <em>Art Guerrier Philippin.</em> Aujourd'hui il est
+                                        <strong>4ème
+                                            Dan
+                                            de
+                                            Kali</strong>
+                                        et
+                                        étudie le <strong>Silat</strong> à Bruxelles.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 mt-3 mb-5">
+                        <div class="section-heading section-heading-cofondateurs">
+                            <h2>Les co-fondateurs</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="single-team">
+                                <figure class="member-img">
+                                    <img src="{{ asset('img/team/Zyad.jpg') }}" alt="solder-instructor" class="img-fluid"/>
+                                </figure>
+                                <ul class="container-fluid d-flex justify-content-between mb-0 member-social">
+                                    <li><a href="https://fr-fr.facebook.com/fouad.ezbiri"> <i class="fa fa-facebook"></i> </a></li>
+                                    <li><a href="https://www.instagram.com/ezbiri_fightv/?hl=fr"> <i class="fa fa-instagram"></i> </a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCTHruyrZLMQUFLMIRIthOKg"> <i class="fa fa-youtube"></i> </a></li>
+                                    <li><a href="https://www.whatsapp.com/"> <i class="fab fa-whatsapp"></i></a></li>
+                                    <li><a href="https://ezbirifightv.fr"> <i class="fa fa-globe"></i> </a></li>
+                                </ul>
+                                <div id="zyade" class="member-info">
+                                    <h3>Zyad</h3>
+
+                                    <h5 class="pt-2">Ancien soldat instructeur, enseignant <u><a class="font-weight-bold text-primary" href="https://krav-maga-fkmds.com/" data-toggle="tooltip"
+                                                                                                 data-placement="top" title="Fédération Krav Maga Defense System">FKMDS</a></u> ,
+                                        <u><a class="font-weight-bold text-primary" href="https://www.kravmaga-ffst.fr/" data-toggle="tooltip"
+                                              data-placement="top" title="Krav Maga Fédération Française du Sport Travailliste">FFST</a></u></h5>
+                                    <p>
+                                        Engagé dans l’Armée de Terre en 2000 en tant que moniteur à l’instruction des soldats.
+                                        Il a eu la chance de faire des stages, des formations (Combat dans jungle avec le 3ème REI, Nageur de combat avec le
+                                        2ème REP) mais aussi plusieurs missions pour la France à l’étranger. <br>
+                                        Ensuite, il a intégré la Police Ferroviaire en tant qu’agent opérationnel avant de devenir Formateur National en Techniques d’Intervention Professionnelle
+                                        au sein de l’Université de la Sûreté. <br>Il a continué à apprendre en effectuant d’autres stages (au bâton, de tir, des formations (MIP).
+                                        Tout cela lui a permis d'échanger avec des unités spécialisées françaises et étrangères.
+                                        Enfin, au niveau sportif il a pratiqué le kick boxing en compétition avant de me mettre au Krav Maga. Il est actuellement 4ème degré FFST et responsable pédagogique
+                                        de la FKMDS et de la FFST.
+                                        Il a monté sa première structure en 2015 à Aubervilliers avant de récupérer d’autres structures sur Paris ainsi qu’à l’étranger.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="single-team">
+                                <figure class="member-img">
+                                    <img src="{{ asset('img/team/guillaume.jpg') }}" alt="" class="img-fluid"/>
+                                </figure>
+                                <ul class="container-fluid d-flex justify-content-between mb-0 member-social">
+                                    <li><a href="https://fr-fr.facebook.com/fouad.ezbiri"> <i class="fa fa-facebook"></i> </a></li>
+                                    <li><a href="https://www.instagram.com/ezbiri_fightv/?hl=fr"> <i class="fa fa-instagram"></i> </a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCTHruyrZLMQUFLMIRIthOKg"> <i class="fa fa-youtube"></i> </a></li>
+                                    <li><a href="https://www.whatsapp.com/"> <i class="fab fa-whatsapp"></i></a></li>
+                                    <li><a href="https://ezbirifightv.fr"> <i class="fa fa-globe"></i> </a></li>
+                                </ul>
+                                <div class="member-info">
+                                    <h3>Guillaume</h3>
+                                    <h5>Gendarme en unité d'intervention</h5>
+                                    <p>
+                                        Guillaume a officié pendant 20 ans dans une Unité d'Intervention au sein de la Gendarmerie Nationale.
+                                        Il est niveau MF3 en enseignement des sports de contact, MF2 en Muay Thaï et Jujitsu brésilien. <br>
+                                        Passionné de tir sportif il pratique à un niveau professionnel. <br>
+                                        Autre sport de contact qu'il apprécie particulièrement, le hockey sur glace.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- team end -->
+
+    <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading section-heading-co">
+                        <h2>contacts</h2>
+                        <p>Vous êtes intéressé ? <br> Vous voulez plus d'information ? <br>
+                            Vous pouvez directement nous contacter aux coordonnées ci-dessous. <br>
+                            <em>Sinon inscrivez-vous directement à une de nos formation en cliquant sur le <a
+                                        class="badge badge-danger" href="{{ path('calendar') }}">calendrier.</a></em>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <address class="street-address text-center">
+                        <p class="address-title"> Team <br> <span> Ezbiri </span></p>
+                        <p class="h6">4 rue de la Ligne de l'Est <br> 69100 Villeurbanne <br> FRANCE </p>
+                        <p><span> TEL : </span> <a href="tel:0762334638">0762334638</a> <br> <span> EMAIL : </span> <a href="mailto:fouad.ezbiri@gmail.com">fouad.ezbiri@gmail.com</a>
+                        </p>
+                    </address>
+                    <ul class="d-flex justify-content-between mb-0 contact-social">
+                        <li class="text-center"><a href="https://fr-fr.facebook.com/fouad.ezbiri"> <i class="fa fa-facebook"></i> </a></li>
+                        <li class="text-center"><a href="https://www.instagram.com/ezbiri_fightv/?hl=fr"> <i class="fa fa-instagram"></i> </a></li>
+                        <li class="text-center"><a href="https://www.youtube.com/channel/UCTHruyrZLMQUFLMIRIthOKg"> <i class="fa fa-youtube"></i> </a></li>
+                        <li class="text-center"><a href="https://www.whatsapp.com/"> <i class="fab fa-whatsapp"></i></a></li>
+                        <li class="text-center"><a href="http://team-ezbiri.com/"> <i class="fa fa-globe"></i> </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact end -->
+
+    {% include 'shared/footer.html.twig' %}
+
+{% endblock %}
+
+

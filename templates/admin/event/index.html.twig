@@ -1,0 +1,54 @@
+<div class="table-responsive">
+    <table class="table table-sm text-center">
+        <thead class="thead-light">
+        <tr>
+            <th class="align-middle">Début</th>
+            <th class="align-middle">Fin</th>
+            <th class="align-middle">Lieu</th>
+            <th class="align-middle">Nb max participants</th>
+            <th class="align-middle">Nb places dispos</th>
+            <th class="align-middle">Thème</th>
+            <th class="align-middle">Utilisateurs inscrits</th>
+            <th class="align-middle">Action</th>
+            <th class="align-middle"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.dateStart | date('d.m.y') }}</td>
+                <td>{{ event.dateEnd | date('d.m.y') }}</td>
+                <td>{{ event.location }}</td>
+                <td>{{ event.nbMaxStudent }}</td>
+                <td class="text-success"><strong><em>{{ event.availableplaces == 0 ? "Complet" : event.availableplaces }}</em></strong></td>
+                <td>{{ event.eventType.name }}</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-dark btn-sm" type="button">Nom</button>
+                        <button class="btn btn-dark btn-sm dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only"></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <ul>
+                                {% for user in event.users %}
+                                    <li class="dropdown-item">
+                                        {{ user is defined ? user.lastname ~ " " ~ user.firstname : 'Utilisateur supprimé' }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="m-0"><em><a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#Modal" data-whatever="{{ path('delete_event', { 'id':event.id }) }}" href="#">Supprimer</a></em></p>
+                </td>
+                <td>
+                    <p class="m-0"><em><a class="btn btn-outline-primary btn-sm" href="{{ path('edit_event', { 'id':event.id }) }}">Editer</a></em></p>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" type="button" href="{{ path('event_create') }}">Créer nouvelle session</a>
+</div>

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification{% endblock %}
+
+{% block body %}
+    <h2 class="text-center mt-2">Modifier les informations de <em>{{ user.lastname }}</em></h2>
+    <fieldset class="container col-lg-4 mt-2 mb-3">
+        {{ include('admin/user/_user.html.twig') }}
+    </fieldset>
+{% endblock %}

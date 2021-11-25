@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    {% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
+
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger text-center font-weight-bold" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h2 class="text-center">S'enregistrer</h2>
+
+    {{ form_start(registrationForm) }}
+
+    <fieldset class="container col-lg-4 mt-2 mb-3">
+
+        {{ form_row(registrationForm.email) }}
+
+        {{ form_row(registrationForm.username) }}
+
+        {{ form_row(registrationForm.plainPassword) }}
+
+        {{ form_row(registrationForm.lastname) }}
+
+        {{ form_row(registrationForm.firstname) }}
+
+        <h5 class="text-center mt-3">Votre adresse :</h5>
+
+        {{ form_row(registrationForm.street) }}
+
+        {{ form_row(registrationForm.zip_code) }}
+
+        {{ form_row(registrationForm.city) }}
+    </fieldset>
+
+    <div class="container-fluid text-center mb-3">
+        <button type="submit" class="btn btn-success">S'inscrire</button>
+        <a class="btn btn-primary" href="{{ path('home') }}" role="button">Revenir à l'accueil</a>
+    </div>
+
+    {{ form_end(registrationForm) }}
+
+{% endblock %}

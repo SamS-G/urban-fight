@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+    <div style="padding-bottom: 11%">
+        {% include 'shared/header.html.twig' %}
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-around">
+        {% for event in events %}
+            {% include 'urbanFight/event/_event.htm.twig' %}
+
+        {% else %}
+            <div class="col-lg-8 jumbotron text-center mt-5">
+                <h1 class="display-4">Désolé !</h1>
+                <p class="lead">Nous n'avons pas de session programmé pour le moment...</p>
+                <i class="far fa-sad-cry fa-3x"></i>
+                <hr class="my-4">
+                <p>Revenez une autre fois ! <i class="far fa-smile-wink"></i></p>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
+

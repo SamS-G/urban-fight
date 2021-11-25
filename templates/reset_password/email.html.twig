@@ -1,0 +1,15 @@
+<h1>Bonjour</h1>
+
+<p>
+    Vous avez effectué une demande de changement de mot de passe pour votre espace personnel sur le site <a href="http://urbanfight.com">Urban Fight</a>.
+    <br>
+    Pour définir un nouveau mot de passe suivez le lien :
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">ICI</a> <br>
+    Ce lien expire dans {{ tokenLifetime|date('g') }} heure...
+    <br>
+    Si vous n'êtes pas à l'origine de cette demande contactez rapidement : <a href="mailto:admin@urbanfight.com">admin@urbanfight.com</a>
+</p>
+
+<p>
+    Merci !
+</p>

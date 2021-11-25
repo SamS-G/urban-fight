@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle inscription{% endblock %}
+
+{% block body %}
+    <div class="container col-lg-5 mt-4 mb-3">
+        <fieldset class="container col-lg-7">
+            <h3 class="text-center mb-4">Création d'une nouvelle inscription</h3>
+            {{ include('admin/users_registered/_new.html.twig') }}
+        </fieldset>
+    </div>
+{% endblock %}

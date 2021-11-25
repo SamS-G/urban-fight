@@ -1,0 +1,17 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.date_start) }}
+    {{ form_row(form.date_end) }}
+    {{ form_row(form.location) }}
+    {{ form_row(form.nb_max_student) }}
+    {{ form_row(form.availablePlaces) }}
+    {% if app.request.get('_route')  == 'event_create' %}
+        {% do form.availablePlaces.setRendered() %}
+    {% endif %}
+    {{ form_row(form.eventType) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+

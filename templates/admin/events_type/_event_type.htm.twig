@@ -1,0 +1,23 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.upload) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.subject) }}
+    {{ form_row(form.content) }}
+    {{ form_row(form.active) }}
+    <div class="container-fluid text-center mt-2 mb-3">
+        <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>{{ app.request.attributes.get('_route') == 'event-type_create' ? 'Créer' : 'Modifier' }}</button>
+        <a class="btn btn-primary" href="{{ path('admin_index') }}" role="button">Retour</a>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    {{ encore_entry_script_tags('create_event') }}
+{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('create_event') }}
+    {% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block body %}
+
+    <h2 class="mb-5 mt-5 text-center">{{ user.lastname ~ ' ' ~ user.firstname }}</h2>
+
+    <div class="container d-flex justify-content-between text-center">
+        {% if user is same as(app.user) %}
+            <div class="container ">
+                <a href="{{ path('home') }}" class="btn btn-outline-primary mb-4"><i class="fas fa-home fa-sm"></i>Retour à l'Accueil</a><br>
+                <a href="{{ path('edit_profile') }}" class="btn btn-outline-info mb-4"><i class="fas fa-pencil-alt fa-sm"></i>Modifier mes informations</a><br>
+                <a href="{{ path('update_password') }}" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt fa-sm"></i>Modifier mon mot de passe</a>
+            </div>
+        {% endif %}
+
+        <table class="col-lg-6 table mb-4">
+            <tbody>
+            <tr class="bg-light">
+                <th scope="row"><em>Mon email</em></th>
+                <td class="bg-light">{{ user.email }}</td>
+            </tr>
+
+            <tr>
+                <th scope="row"><em>Email confirmé</em></th>
+                <td>{{ user.isverified ? '<span class="text-success"><strong>Oui</strong></span>' : '<span class="text-danger"><strong>Non</strong></span>' }}</td>
+            </tr>
+
+            <tr class="bg-light">
+                <th scope="row"><em>Mon pseudonyme</em></th>
+                <td class="bg-light">{{ user.username }}</td>
+            </tr>
+
+            <tr>
+                <th scope="row"><em>Mon prénom</em></th>
+                <td>{{ user.firstname }}</td>
+            </tr>
+
+            <tr class="bg-light">
+                <th scope="row"><em>Mon nom</em></th>
+                <td class="bg-light">{{ user.lastname }}</td>
+            </tr>
+
+            <tr>
+                <th scope="row"><em>Mon adresse</em></th>
+                <td>{{ user.street }}<br>{{ user.zipcode| length < 5 ? 0 ~ user.zipcode ~ " " ~ user.city : user.zipcode ~ " " ~ user.city }}</td>
+            </tr>
+
+            <tr class="bg-light">
+                <th scope="row"><em>Inscription à une formation</em></th>
+                <td class="bg-light text-primary font-italic">
+                    {% if user.events is not empty %}
+                        {% for event in user.events %}
+                            {{ event.eventType.subject  ~ " du " ~ event.dateStart | format_date }} <br>
+                        {% endfor %}
+                    {% else %}
+                        <span class="text-info font-italic">Vous n'êtes inscris à aucune formation pour l'instant</span>
+                    {% endif %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+
+
+
+

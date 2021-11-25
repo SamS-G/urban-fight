@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+    <title>{% block title %}Nouveau système révolutionnaire de self-défense - Urban Fight{% endblock %}</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Le système de self-defense Urban-Fight est structuré et prends enfin en compte toutes les dimensions de la défense personnelle."/>
+    <meta name="robots" content="index,follow"/>
+    <link rel="canonical" href="https://urban-fight.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script async src="https://kit.fontawesome.com/11f79c9fc2.js" crossorigin="anonymous"></script>
+
+    {% block stylesheets %}
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/UF.png') }}"/>
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+{% block header %}{% endblock %}
+
+{% for message in app.flashes('success') %}
+    <div id="success" class="alert alert-success text-center font-weight-bold">
+        {{ message | raw }}
+    </div>
+{% endfor %}
+
+{% for message in app.flashes('error') %}
+    <div id="error" class="alert alert-danger text-center font-weight-bold">
+        {{ message | raw }}
+    </div>
+{% endfor %}
+
+{% for message in app.flashes('warning') %}
+    <div id="warning" class="alert alert-warning text-center font-weight-bold">
+        {{ message | raw }}
+    </div>
+{% endfor %}
+
+{% block body %}{% endblock %}
+
+</html>
+<!--TODO générer robot.txt et sitemap-->

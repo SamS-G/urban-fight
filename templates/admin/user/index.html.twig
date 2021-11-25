@@ -1,0 +1,63 @@
+<div class="table-responsive">
+    <table class="table table-sm text-center">
+        <thead class="thead-light">
+        <tr>
+            <th class="align-middle">Email</th>
+            <th class="align-middle">Nom</th>
+            <th class="align-middle">Prénom</th>
+            <th class="align-middle">Pseudo</th>
+            <th class="align-middle">Adresse</th>
+            <th class="align-middle">Code postal</th>
+            <th class="align-middle">Ville</th>
+            <th class="align-middle">Inscription formation</th>
+            <th class="align-middle">Email confirmé</th>
+            <th class="align-middle">Bloqué</th>
+            <th class="align-middle"></th>
+            <th class="align-middle">Action</th>
+            <th class="align-middle"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td class="pt-2">{{ user.email }}</td>
+                <td class="pt-2">{{ user.lastname }}</td>
+                <td class="pt-2">{{ user.firstname }}</td>
+                <td class="pt-2">{{ user.username }}</td>
+                <td class="pt-2">{{ user.street }}</td>
+                <td class="pt-2">{{ user.zipcode | length < 5 ? 0 ~ user.zipcode : user.zipcode }}</td>
+                <td class="pt-2">{{ user.city }}</td>
+                <td class="pt-2">{{ user.events is empty ? 'Non' : 'Oui' }}</td>
+
+                {% if user.verified %}
+                    <td class="text-success pt-2">Oui</td>
+                {% else %}
+                    <td class="text-danger pt-2">Non</td>
+                {% endif %}
+
+                {% if user.isbanned %}
+                    <td class="text-danger pt-2">Oui</td>
+                    <td class="m-0">
+                        <p class="m-0"><em><a class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#Modal" data-whatever="{{ path('ban-user', { 'id':user.id }) }}" href="#">Débloquer</a></em></p>
+                    </td>
+                {% else %}
+                    <td class="text-success pt-2">Non</td>
+                    <td class="m-0">
+                        <p class="m-0"><em><a class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#Modal" data-whatever="{{ path('ban-user', { 'id':user.id }) }}" href="#">Bloquer</a></em></p>
+                    </td>
+                {% endif %}
+
+                <td>
+                    <p class="m-0"><em><a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#Modal" data-whatever="{{ path('delete-user', { 'id':user.id }) }}" href="#">Supprimer</a></em></p>
+                </td>
+                <td>
+                    <p class="m-0"><em><a class="btn btn-outline-primary btn-sm" href="{{ path('edit-user', { 'id':user.id }) }}">Editer</a></em></p>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>

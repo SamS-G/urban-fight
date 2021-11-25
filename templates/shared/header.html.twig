@@ -1,0 +1,137 @@
+<!-- header start -->
+<header>
+    {% for message in app.flashes('success') %}
+        <div class="container-fluid alert alert-success text-center mb-0 font-weight-bold">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <!-- main menu start -->
+    <nav class="header-area container-fluid d-flex justify-content-around align-items-center">
+        <img class="img-fluid" id="logo-urban" src="{{ asset('img/UF.png') }}" alt="logo-urban-fight">
+        <div class="tab-menu">
+            <div class=" mainmenu navbar navbar-expand-lg pt-0">
+                <ul class="collapse navbar-collapse justify-content-center m-0" id="navbarSupportedContent">
+                    <li class="nav-item pr-xl-5 pr-md-2"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li>
+                    <li class="nav-item pr-xl-5 pr-md-2"><a class="nav-link" href="{{ path('home') }}#concept">Concept</a></li>
+                    <li class="nav-item pr-xl-5 pr-md-2"><a class="nav-link" href="{{ path('home') }}#report">Constat</a></li>
+                    <li class="nav-item dropdown show nav-link">
+                        <a id="dropdown-one" class="btn dropdown-toggle p-0" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#navbarDropdown">Urban Fight
+                        </a>
+                        <div id="navbarDropdown" class="dropdown-menu dropdown-bg dropdown-button p-1" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ path('level_response') }}">Les
+                                Niveaux</a>
+                            <a class="dropdown-item" href="{{ path('psycho_response') }}">La
+                                Psychologie</a>
+                            <a class="dropdown-item" href="{{ path('physical') }}">Le
+                                Physiques</a>
+                            <a class="dropdown-item" href="{{ path('force_response') }}">
+                                La Force</a>
+                            <a class="dropdown-item" href="{{ path('calendar') }}">
+                                S'y Former</a>
+                            <div class="dropdown-divider m-0"></div>
+                            <a class="dropdown-item" href="{{ path('home') }}#team">Les Créateurs</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('home') }}#contact">Contact</a></li>
+                </ul>
+            </div> <!-- main menu end -->
+        </div>
+
+        {% if app.user %}
+            <ul class="text-center">
+                {% if app.user.roles[0] is defined and app.user.roles[0] == 'ROLE_ADMIN' %}
+                    <li class="text-white"><p class="mb-0">Vous êtes connecté en tant que : {{ app.user.username }}</p></li>
+                    <div class="dropdown-divider"></div>
+                    <li><a class="text-white" href="{{ path('admin_index') }}"><i class="fas fa-tachometer-alt"></i>Tableau de bord</a></li>
+                    <div class="dropdown-divider"></div>
+                    <li><a class="text-white" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i>Déconnexion</a></li>
+                {% elseif app.user.roles[0] is defined and app.user.roles[0] == 'ROLE_USER' %}
+                    <li><p class="text-white mb-0">Vous êtes connecté en tant que {{ app.user.username }}</p></li>
+                    <div class="dropdown-divider"></div>
+                    <li><a class="text-white" href="{{ path('user_profile') }}"><i class="fas fa-id-card"></i>Mon profil</a></li>
+                    <div class="dropdown-divider"></div>
+                    <li><a class="text-white" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i>Déconnexion</a></li>
+                {% endif %}
+            </ul>
+        {% else %}
+            <div class="dropdown show" style="list-style: none">
+                <button id="dropdownMenuButtonFull" class="btn btn-danger dropdown-toggle text-white font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Espace membre
+                </button>
+                <div class="dropdown-menu dropdown-bg dropdown-button p-1" aria-labelledby="dropdownMenuButtonFull">
+                    <a class="dropdown-item" href="{{ path('app_login') }}"><i class="fas fa-sign-in-alt pr-2"></i>Connexion</a>
+                    <a class="dropdown-item" href="{{ path('app_register') }}"><i class="fas fa-user-plus pr-2"></i>Inscription</a>
+                </div>
+            </div>
+        {% endif %}
+    </nav>
+
+    <!-- mobile menu start -->
+    <nav id="mobile-menu" class="navbar navbar-dark bg-dark mobile-menu-area">
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+                aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <img class="ml-2 mt-3" src="{{ asset('img/UF.png') }}" width="40" height="30" alt="logo urbanfight">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('home') }}#concept">Le concept</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('home') }}#report">Le constat</a></li>
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                       role="button" aria-haspopup="true" aria-expanded="false">
+                        La réponse de l'Urban <span class="caret"></span></a>
+                    <ul class="col-3 nav-bar-nav dropdown-menu dropdown-style bg-secondary">
+                        <li class="text-center"><a class="text-white" href="{{ path('level_response') }}"><em>Les niveaux</em></a></li>
+                        <li role="separator" class="divider">
+                            <hr>
+                        </li>
+                        <li class="text-center"><a class="text-white" href="{{ path('psycho_response') }}"><em>Psychologie</em></a></li>
+                        <li role="separator" class="divider">
+                            <hr>
+                        </li>
+                        <li class="text-center"><a class="text-white" href="{{ path('physical') }}"><em>Aptitudes physiques</em></a></li>
+                        <li role="separator" class="divider">
+                            <hr>
+                        </li>
+                        <li class="text-center"><a class="text-white" href="{{ path('force_response') }}"><em>Recours à la force</em></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('home') }}#team">Les créateurs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('calendar') }}">Se former</a></li>
+                <li class="nav-item mb-2"><a class="nav-link" href="{{ path('home') }}#contact">Contact</a></li>
+
+                {% if app.user %}
+                    {% if app.user.roles[0] is defined and app.user.roles[0] == 'ROLE_ADMIN' %}
+                        <li class="text-center text-white"><p class="mb-2 mt-4">Vous êtes connecté en tant que {{ app.user.username }}</p></li>
+                        <li class="text-center"><a class="dropdown-item text-white" href="{{ path('admin_index') }}"><i class="fas fa-tachometer-alt text-white"></i>Tableau de bord</a></li>
+                        <li class="text-center"><a class="dropdown-item text-white" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt text-white"></i>Déconnexion</a></li>
+
+                    {% elseif app.user.roles[0] is defined and app.user.roles[0] == 'ROLE_USER' %}
+                        <li class="text-center"><p class="mb-2 mt-4">Vous êtes connecté en tant que {{ app.user.username }}</p></li>
+                        <li class="text-center"><a class="dropdown-item" href="{{ path('user_profile') }}"><i class="fas fa-id-card"></i>Mon profil</a></li>
+                        <li class="text-center"><a class="dropdown-item" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i>Déconnexion</a></li>
+                    {% endif %}
+                {% else %}
+                    <li class="dropdown" style="list-style: none">
+                        <a href="#" class="btn btn-danger dropdown-toggle btn-sm text-white font-weight-bold" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Espace membre
+                        </a>
+                        <ul class="dropdown-menu dropdown-bg dropdown-button p-1" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="{{ path('app_login') }}"><i class="fas fa-sign-in-alt pr-2"></i>Connexion</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_register') }}"><i class="fas fa-user-plus pr-2"></i>Inscription</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+            <a href="#"><img id="logo-urban-mobile" src="{{ asset('img/UF.png') }}" alt="logo-urban-fight"></a>
+        </div>
+    </nav>
+    <!-- mobile menu end -->
+</header>
+<!-- header end -->
+
+

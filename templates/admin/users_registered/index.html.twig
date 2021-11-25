@@ -1,0 +1,33 @@
+<div class="table-responsive">
+    <table class="table table-sm text-center">
+        <thead class="thead-light">
+        <tr>
+            <th class="align-middle">Date session</th>
+            <th class="align-middle">Thème</th>
+            <th class="align-middle">Nom</th>
+            <th class="align-middle">Prénom</th>
+            <th class="align-middle">Email</th>
+            <th class="align-middle">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for event in events %}
+            {% for user in event.users %}
+                <tr>
+                    <td>{{ event.dateStart | format_date }}</td>
+                    <td>{{ event.eventType.name }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <p class="m-0"><em><a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#Modal" data-whatever="{{ path('delete_registered', {'user_id':user.id, 'event_id':event.id }) }}" href="#">Supprimer</a></em></p>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" type="button" href="{{ path('new_registration') }}">Créer nouvelle inscription</a>
+</div>

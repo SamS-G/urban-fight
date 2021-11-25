@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification{% endblock %}
+
+{% block body %}
+    <h2 class="text-center pb-3">Modifier mes informations</h2>
+    <fieldset class="container col-lg-4 mt-3 mb-3">
+        {{ include('user/_edit.html.twig') }}
+    </fieldset>
+
+{% endblock %}

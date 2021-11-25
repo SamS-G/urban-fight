@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app.request.attributes.get('_route') == 'event_create' ? 'Création session' : 'Modification' }}{% endblock %}
+
+{% block body %}
+    {% if app.request.get('_route')  == 'edit_event' %}
+        <h2 class="text-center mt-3 mb-3">Modifier la session</h2>
+    {% else %}
+        <h2 class="text-center mt-3 mb-4">Nouvelle session</h2>
+    {% endif %}
+    <fieldset class="container col-lg-4 mt-2 mb-3">
+        {{ include('admin/event/_event.html.twig') }}
+    </fieldset>
+{% endblock %}

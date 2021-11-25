@@ -1,0 +1,54 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/urbamqed/public_html/node"
+PassengerBaseURI "/"
+PassengerNodejs "/home/urbamqed/nodevenv/public_html/node/10/bin/node"
+PassengerAppType node
+PassengerStartupFile app.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule (.*) /public [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^(www.)?urban-fight.com$
+RewriteRule !^public/ /public%{REQUEST_URI}  [L]
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 1 month"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+
+
+#<IfModule mod_headers.c>
+#Header set Content-Security-Policy "base-uri 'self'; connect-src 'self' https://ka-f.fontawesome.com; default-src 'self'; font-src 'self' https://ka-f.fontawesome.com; frame-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; object-src 'none'; report-uri https://619e097bdb01dc14b958c048.endpoint.csper.io/; script-src 'report-sample' 'self' https://kit.fontawesome.com/11f79c9fc2.js; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com/ https://uicdn.toast.com/; worker-src 'none';"
+#</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-FRAME-OPTIONS "SAMEORIGIN"
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+# Do not change this line.
+#RewriteEngine on
+# Change example.com to be your main domain.
+#RewriteCond %{HTTP_HOST} ^(www.)?urbanfight$
+# Change 'subdirectory' to be the directory you will use for your main domain.
+#RewriteCond %{REQUEST_URI} !^/public/index.php
+# Don't change the following two lines.
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+# Change 'subdirectory' to be the directory you will use for your main domain.
+#RewriteRule ^(.*)$ /public/$1
+# Change example.com to be your main domain again.
+# Change 'subdirectory' to be the directory you will use for your main domain
+# followed by / then the main file for your site, index.php, index.html, etc.
+#RewriteCond %{HTTP_HOST} ^(www.)?urbanfight/$
+#RewriteRule ^(/)?$ public/index.php [L]

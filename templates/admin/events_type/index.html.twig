@@ -1,0 +1,36 @@
+<div class="table-responsive">
+    <table class="table table-sm text-center">
+        <thead class="thead-light">
+        <tr>
+            <th>Nom</th>
+            <th>Sujet</th>
+            <th>Contenu</th>
+            <th>Evénement actif</th>
+            <th>Action</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for type in eventsType %}
+            <tr>
+                <td>{{ type.name }}</td>
+                <td>{{ type.subject }}</td>
+                <td>{{ type.content | u.truncate(50) | striptags }}</td>
+                <td>{{ type.active ? '<span class="text-success font-weight-bold">Oui</span>'  : '<span class="text-danger font-weight-bold">Non</span>' }} </td>
+                <td>
+                    {% if type.active %}
+                        <p class="m-0"><em><a class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#Modal" data-whatever="{{ path('event-type_disable', { 'id':type.id }) }}" href="#">Désactiver</a></em></p>
+                    {% else %}
+                        <p class="m-0"><em><a class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#Modal" data-whatever="{{ path('event-type_disable', { 'id':type.id }) }}" href="#">Activer</a></em></p>
+                    {% endif %}
+                </td>
+                <td>
+                    <p class="m-0"><em><a class="btn btn-outline-primary btn-sm" href="{{ path('event-type_edit', {'id':type.id }) }}">Editer</a></em></p>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" type="button" href="{{ path('event-type_create') }}">Créer un nouveau type d'événement</a>
+</div>

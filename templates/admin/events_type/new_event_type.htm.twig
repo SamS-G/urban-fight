@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app.request.attributes.get('_route') == 'event-type_create' ? 'Création événement' : 'Modification' }}{% endblock %}
+
+{% block body %}
+    {% if app.request.get('_route')  == 'event-type_edit' %}
+        <h2 class="text-center pt-4 mb-5">Modifier l'événement</h2>
+        {% for data in eventType.upload %}
+            <div class="mb-3">
+                <p class="font-weight-bold mb-2 font-italic">Image d'illustration</p>
+                <img class="img-fluid" src="{{ asset('upload/' ~ data.name) }}" alt="file-uploaded">
+                <a type="button" class="btn btn-primary btn-sm mt-1" href="{{ path('delete_file', {'id': data.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ data.id) }}">Supprimer l'image</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h2 class="text-center mt-3 mb-5">Nouveau événement</h2>
+    {% endif %}
+    <fieldset class="container col-lg-4">
+        {{ include('admin/events_type/_event_type.htm.twig') }}
+    </fieldset>
+{% endblock %}

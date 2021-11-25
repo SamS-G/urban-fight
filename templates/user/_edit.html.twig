@@ -1,0 +1,31 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.username, {
+        label: "Nom d'utilisateur"
+    }) }}
+    {{ form_row(form.lastname, {
+        label: 'Nom'
+    }) }}
+    {{ form_row(form.firstname, {
+        label: 'Prénom'
+    }) }}
+    <h5 class="text-center">Adresse :</h5>
+    {{ form_row(form.street, {
+        label: 'Nom de la rue'
+    }) }}
+    {{ form_row(form.zip_code, {
+        label: 'Code postal'
+    }) }}
+    {{ form_row(form.city, {
+        label: 'Ville'
+    }) }}
+    <div class="container-fluid text-center">
+        <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>Enregistrer les modifications</button>
+        <a class="btn btn-primary" href="{{ path('user_profile') }}" role="button">Retour</a>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+

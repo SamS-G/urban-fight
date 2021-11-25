@@ -1,0 +1,22 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.events) }}
+    {{ form_row(form.users) }}
+    <div class="container-fluid text-center">
+        <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-check"></i>Créer</button>
+        <a class="btn btn-primary btn-sm" href="{{ path('admin_index') }}" role="button">Retour</a>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <script>
+            $(".alert-danger").fadeTo(2000, 500).slideUp(500, function () {
+                $(".alert-danger").slideUp(500);
+            });
+        </script>
+    {% endblock %}
+
